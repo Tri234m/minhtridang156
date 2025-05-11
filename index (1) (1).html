@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Trại Gà Chọi Minh Trí - Hà Giang</title>
+    <style>
+        /* Thiết lập cơ bản */
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #D4A76A;
+            --text-color: #333;
+            --light-bg: #F9F9F9;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner-ga-choi.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Giới thiệu */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        /* Sản phẩm */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #6b0000;
+        }
+        
+        /* Liên hệ */
+        .contact {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #222;
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 15px;
+            }
+            
+            .about {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>TRANG TRẠI GÀ CHỌI MINH TRÍ</h1>
+        <p>Uy tín - Chất lượng - Giá cả hợp lý</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">GÀ CHỌI MINH TRÍ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Giới thiệu -->
+        <section id="about" class="about-section">
+            <h2 class="section-title">GIỚI THIỆU TRANG TRẠI</h2>
+            <div class="about">
+                <div class="about-image">
+                    <img src="trang-trai-ga-choi.jpg" alt="Trang trại gà chọi Minh Trí">
+                </div>
+                <div class="about-content">
+                    <h3>15 Năm Kinh Nghiệm</h3>
+                    <p>Trang trại Gà Chọi Minh Trí với hơn 15 năm kinh nghiệm trong lĩnh vực nuôi và chọn giống gà chọi thuần chủng. Chúng tôi tự hào là địa chỉ uy tín cung cấp những chiến kê chất lượng cao tại Hà Giang.</p>
+                    <p>Với phương châm "Chất lượng tạo nên thương hiệu", mỗi chú gà tại trang trại đều được chăm sóc và huấn luyện theo quy trình khoa học, đảm bảo sức khỏe và phong độ thi đấu tốt nhất.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sản phẩm -->
+        <section id="products" class="products-section">
+            <h2 class="section-title">GÀ CHỌI CHẤT LƯỢNG</h2>
+            <div class="products">
+                <!-- Sản phẩm 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ga-do-ha-giang.jpg" alt="Gà chọi Hà Giang đỏ">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gà Chọi Hà Giang Đỏ</h3>
+                        <p>Giống gà thuần chủng, lông đỏ rực, dáng đứng oai vệ, chân chắc khỏe, đá hay.</p>
+                        <div class="product-price">1.850.000 VND</div>
+                        <a href="#contact" class="btn">Liên hệ mua</a>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ga-ma-lai.jpg" alt="Gà chọi Mã Lai">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gà Chọi Mã Lai</h3>
+                        <p>Thân hình vạm vỡ, sức mạnh vượt trội, khả năng chịu đòn tốt, lối đá uy lực.</p>
+                        <div class="product-price">2.200.000 VND</div>
+                        <a href="#contact" class="btn">Liên hệ mua</a>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ga-asil.jpg" alt="Gà chọi Asil">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gà Chọi Asil</h3>
+                        <p>Dòng gà quý hiếm, lối đá tấn công mãnh liệt, sức bền vượt trội, thi đấu chuyên nghiệp.</p>
+                        <div class="product-price">2.500.000 VND</div>
+                        <a href="#contact" class="btn">Liên hệ mua</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Liên hệ -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">LIÊN HỆ CHÚNG TÔI</h2>
+            <div class="contact">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Chủ trang trại</h4>
+                            <p>Đặng Minh Trí</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Địa chỉ</h4>
+                            <p>Quang Bình, Tân Trịnh, Hà Giang</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>minhtridang156@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Điện thoại</h4>
+                            <p>09xx.xxx.xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="logo">GÀ CHỌI MINH TRÍ</div>
+        <p>Chuyên cung cấp gà chọi thuần chủng chất lượng cao</p>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-zalo"></i></a>
+        </div>
+        
+        <p class="copyright">© 2030 Trại Gà cunghọi Minh Trí. All rights reserved.</p>
+    </footer>
+</body>
+</html>
